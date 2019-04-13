@@ -15,7 +15,7 @@ func ErrWrapper(handler appHandler) func(http.ResponseWriter, *http.Request) {
 		// 1.处理逻辑业务
 		err := handler(writer, request)
 		if err != nil {
-			log.Print("error occured, %s", err)
+			log.Print("error occured, ", err)
 
 			// 2. 处理可以抛给用户的错误
 			if err, ok := err.(UserError); ok {
